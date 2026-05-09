@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+>
+</head>
+
+<body>
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="container">
+
+        <header class="site-header">
+            <div class="header-badge">
+                <span class="badge-dot"></span>
+                TASK MANAGER
+            </div>
+            <h1>My <span class="accent-text">Workspace</span></h1>
+            <p class="header-sub">Stay organized, stay productive</p>
+        </header>
+
+        <div class="analytics">
+
+            <div class="card card--total">
+                <div class="card-icon-wrap card-icon-wrap--blue">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="card-body">
+                    <p id="totalTasks">0</p>
+                    <h3>Total Tasks</h3>
+                </div>
+            </div>
+
+            <div class="card card--completed">
+                <div class="card-icon-wrap card-icon-wrap--green">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="card-body">
+                    <p id="completedTasks">0</p>
+                    <h3>Completed</h3>
+                </div>
+            </div>
+
+            <div class="card card--pending">
+                <div class="card-icon-wrap card-icon-wrap--amber">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="card-body">
+                    <p id="pendingTasks">0</p>
+                    <h3>Pending</h3>
+                </div>
+            </div>
+
+            <div class="card card--percent">
+                <div class="card-icon-wrap card-icon-wrap--sky">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="card-body">
+                    <p id="completionPercentage">0%</p>
+                    <h3>Completion</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-section">
+            <div class="section-header">
+                <h2 class="section-title">Add New Task</h2>
+                <span class="section-tag">Quick Entry</span>
+            </div>
+
+            <div class="form-grid">
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Task title"
+                    class="input-field"
+                >
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Short description"
+                    class="input-field"
+                >
+
+                <select id="priority" class="input-field select-field">
+                    <option value="LOW">Low Priority</option>
+                    <option value="MEDIUM">Medium Priority</option>
+                    <option value="HIGH">High Priority</option>
+                </select>
+
+                <button onclick="createTask()" class="btn-add">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Add Task
+                </button>
+            </div>
+        </div>
+
+        <div class="tasklist-wrap">
+            <div class="section-header">
+                <h2 class="section-title">Task List</h2>
+            </div>
+            <div id="taskList"></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
