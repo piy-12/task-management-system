@@ -2,6 +2,8 @@ from flask import Blueprint
 from flask import request
 from flask import jsonify
 
+from flask import render_template
+
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 
@@ -88,3 +90,17 @@ def login():
             "email": user.email
         }
     }), 200
+
+@auth_bp.route("/login-page")
+def login_page():
+
+    return render_template(
+        "login.html"
+    )
+
+@auth_bp.route("/register-page")
+def register_page():
+
+    return render_template(
+        "register.html"
+    )

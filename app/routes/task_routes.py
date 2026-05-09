@@ -5,6 +5,7 @@ from flask import jsonify
 from app.extensions import db
 from app.extensions import socketio
 from flask import render_template
+from flask import redirect
 
 from app.models.task import Task
 
@@ -175,4 +176,11 @@ def delete_task(task_id):
 @task_bp.route("/")
 def home():
 
-    return render_template("index.html")
+    return redirect("/login-page")
+
+@task_bp.route("/dashboard")
+def dashboard():
+
+    return render_template(
+        "index.html"
+    )

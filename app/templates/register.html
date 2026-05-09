@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+     <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="auth-body">
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="auth-layout auth-layout--register">
+
+        <!-- Left decorative panel -->
+        <div class="auth-visual auth-visual--left">
+            <div class="visual-content">
+                <div class="visual-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Free forever, no credit card
+                </div>
+                <h2 class="visual-title">Start organizing<br>your work <span style="color:var(--blue-pale)">today.</span></h2>
+                <p class="visual-subtitle">Join thousands of professionals who use TaskManager to hit their goals every day.</p>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <p class="stat-number">10k+</p>
+                        <p class="stat-label">Active users</p>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <p class="stat-number">98%</p>
+                        <p class="stat-label">Satisfaction</p>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <p class="stat-number">2M+</p>
+                        <p class="stat-label">Tasks done</p>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"TaskManager completely changed how our team ships work. I can't imagine going back."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">JK</div>
+                        <div>
+                            <p class="author-name">Jordan Kim</p>
+                            <p class="author-role">Product Lead at Vercel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right panel -->
+        <div class="auth-panel">
+
+            <div class="auth-brand">
+                <div class="brand-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <span class="brand-name">TaskManager</span>
+            </div>
+
+            <div class="auth-content">
+                <div class="auth-eyebrow">
+                    <span class="badge-dot"></span>
+                    GET STARTED FREE
+                </div>
+                <h1 class="auth-title">Create your<br><span class="accent-text">account</span></h1>
+                <p class="auth-subtitle">Set up your workspace in under a minute.</p>
+            </div>
+
+
+                <div class="auth-divider">
+                    <span>or register with email</span>
+                </div>
+
+                <div class="name-row">
+                    <div class="input-group">
+                        <label class="input-label" for="firstName">First name</label>
+                        <input type="text" id="firstName" class="input-field" placeholder="John">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="lastName">Last name</label>
+                        <input type="text" id="lastName" class="input-field" placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="regEmail">Work email</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
+                        <input type="email" id="regEmail" class="input-field input-field--icon" placeholder="you@company.com">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="regPassword">Password</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                        <input type="password" id="regPassword" class="input-field input-field--icon" placeholder="Min. 8 characters" oninput="checkStrength(this.value)">
+                        <button class="input-toggle" onclick="togglePassword('regPassword', this)" type="button" tabindex="-1">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <div class="strength-bar" id="strengthBar">
+                        <div class="strength-track">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <span class="strength-label" id="strengthLabel"></span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="confirmPassword">Confirm password</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                        <input type="password" id="confirmPassword" class="input-field input-field--icon" placeholder="Re-enter password">
+                    </div>
+                </div>
+
+                <label class="checkbox-label terms-label">
+                    <input type="checkbox" class="checkbox-input" id="terms">
+                    <span class="checkbox-custom"></span>
+                    I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#" class="auth-link">Privacy Policy</a>
+                </label>
+
+                <button class="btn-primary" onclick="handleRegister()">
+                    Create Account
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+
+                <p class="auth-footer-text">
+                    Already have an account?
+                    <a href="login-page" class="auth-link">Sign in</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function togglePassword(id, btn) {
+            const input = document.getElementById(id);
+            const isText = input.type === 'text';
+            input.type = isText ? 'password' : 'text';
+            btn.style.color = isText ? '' : 'var(--blue-primary)';
+        }
+
+        function checkStrength(val) {
+            const fill = document.getElementById('strengthFill');
+            const label = document.getElementById('strengthLabel');
+            const bar = document.getElementById('strengthBar');
+            if (!val) { bar.style.opacity = '0'; return; }
+            bar.style.opacity = '1';
+            let score = 0;
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+            const levels = [
+                { w: '25%', color: '#ef4444', text: 'Weak' },
+                { w: '50%', color: '#f59e0b', text: 'Fair' },
+                { w: '75%', color: '#3b82f6', text: 'Good' },
+                { w: '100%', color: '#16a34a', text: 'Strong' },
+            ];
+            const lvl = levels[score - 1] || levels[0];
+            fill.style.width = lvl.w;
+            fill.style.background = lvl.color;
+            label.textContent = lvl.text;
+            label.style.color = lvl.color;
+        }
+
+        function handleRegister() {
+            const btn = document.querySelector('.btn-primary');
+            btn.textContent = 'Creating account…';
+            btn.disabled = true;
+            setTimeout(() => { window.location.href = '/dashboard'; }, 1400);
+        }
+    </script>
+
+</body>
+</html>
